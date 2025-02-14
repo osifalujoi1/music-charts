@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.chart.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.collections.FXCollections?>
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #ffede5; -fx-text-fill: #39004c;" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.musiccharts.MusicChartsController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label fx:id="welcomeText" style="-fx-font-size: 25px; -fx-font-weight:bold; -fx-text-fill: #d35d5d;" text="Welcome to Music Chart Application!"/>
+    <Button fx:id="homeButton" text="Get Started!" onAction="#onHelloButtonClick" style="-fx-background-color: #ffd6c9; -fx-text-fill: #39004c; -fx-font-weight: bold; -fx-border-radius: 5px;"/>
+
+    <VBox fx:id="mainContent" spacing="10" visible="false" alignment="CENTER">
+        <Label style="-fx-font-size: 18px;" text="Fetch top songs from Last.fm, BBC, and Billboard. Then click the submit button to generate a random Playlist and Statistics" />
+
+        <HBox spacing="10">
+            <Button onAction="#displayLastfmSongs" text="Last.fm" style="-fx-background-color: #ffd6c9; -fx-text-fill: #39004c; -fx-font-weight: bold; -fx-border-radius: 5px;" />
+            <Button onAction="#displayBBCSongs" text="BBC" style="-fx-background-color: #ffd6c9; -fx-text-fill: #39004c; -fx-font-weight: bold; -fx-border-radius: 5px;" />
+            <Button onAction="#displayBillboardSongs" text="Billboard" style="-fx-background-color: #ffd6c9; -fx-text-fill: #39004c; -fx-font-weight: bold; -fx-border-radius: 5px;" />
+            <Button onAction="#generateSuggestedPlaylist" text="Submit" style="-fx-background-color: #ffd6c9; -fx-text-fill: #39004c; -fx-font-weight: bold; -fx-border-radius: 5px;" alignment="CENTER_RIGHT"/>
+        </HBox>
+
+        <ListView fx:id="playlistView" prefHeight="400" prefWidth="400" style="-fx-border-color: #d35d5d; -fx-border-radius: 5px; -fx-padding: 5; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 2);">
+            <items>
+                <FXCollections fx:factory="observableArrayList"/>
+            </items>
+            <Label fx:id="listViewText" style="-fx-font-size: 25px; -fx-font-weight:bold; -fx-text-fill: #d35d5d; -fx-padding: 60px 0 0 0;" text="Playlist will show up here!" />
+        </ListView>
+        <!--   BarChart for Playlist Statistics-->
+        <BarChart fx:id="barChart" title="Playlist Statistics" visible="false" style="-fx-bar-fill: #ff7e5f; -fx-background-color: transparent;">
+            <xAxis>
+                <CategoryAxis label="Artists" fx:id="xAxis" style="-fx-tick-label-fill: #d35d5d;" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis" label="Occurrences" style="-fx-tick-label-fill: #d35d5d;"/>
+            </yAxis>
+        </BarChart>
+        <Button fx:id="downloadButton" alignment="CENTER" onAction="#downloadPlaylist" text="Download Playlist" style="-fx-margin: 10px 10px 10px 10px ; -fx-background-color: #ffd6c9; -fx-text-fill: #39004c; -fx-font-weight: bold; -fx-border-radius: 5px;" />
+    </VBox>
+
+</VBox>
