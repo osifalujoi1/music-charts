@@ -3,8 +3,7 @@
 A JavaFX-based music chart desktop application that scrapes, visualizes, and curates top trending songs from **Billboard, Last.fm, and BBC Charts**. The app generates a suggested playlist based on overlapping top-ranked songs and provides data visualizations for artist popularity.
 
 ## **📽️ Demo **
-![Screenshot 2025-02-11 at 9.30.02 PM.png](..%2F..%2F..%2FDesktop%2FScreenshot%202025-02-11%20at%209.30.02%E2%80%AFPM.png)
-👉 *Click to watch the demo*
+![demo.png](src/main/resources/demo.png)
 
 ---
 
@@ -90,7 +89,4 @@ Want to improve this project? Follow these steps:
 
 ---
 
-## **📝 License**
-
-This project is licensed under the **MIT License**.
 
